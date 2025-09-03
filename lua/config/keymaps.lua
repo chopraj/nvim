@@ -27,8 +27,11 @@ vim.keymap.set("n", "<D-c>", '"+yy', { desc = "Copy line to clipboard" })
 -- Cmd+V for paste
 vim.keymap.set("n", "<D-v>", '"+p', { desc = "Paste from clipboard" })
 vim.keymap.set("v", "<D-v>", '"+p', { desc = "Paste from clipboard" })
-vim.keymap.set("i", "<D-v>", '<C-r>+', { desc = "Paste from clipboard" })
+vim.keymap.set("i", "<D-v>", "<C-r>+", { desc = "Paste from clipboard" })
 
 -- Cmd+X for cut
 vim.keymap.set("v", "<D-x>", '"+x', { desc = "Cut to clipboard" })
 vim.keymap.set("n", "<D-x>", '"+dd', { desc = "Cut line to clipboard" })
+
+-- Option+Backspace to delete word backward in insert mode
+vim.keymap.set("i", "<M-BS>", "<C-w>", { desc = "Delete word backward" })
