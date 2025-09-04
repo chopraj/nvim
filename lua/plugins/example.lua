@@ -92,4 +92,11 @@ return {
     },
   },
 
+  -- Add glance.nvim for enhanced go-to-definition with preview panel
+  {
+    "dnlhc/glance.nvim",
+    cmd = "Glance",
+    config = true,
+  },
+
 }

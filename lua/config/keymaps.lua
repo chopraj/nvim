@@ -35,3 +35,7 @@ vim.keymap.set("n", "<D-x>", '"+dd', { desc = "Cut line to clipboard" })
 
 -- Option+Backspace to delete word backward in insert mode
 vim.keymap.set("i", "<M-BS>", "<C-w>", { desc = "Delete word backward" })
+
+-- Cmd+D for go to definition using glance.nvim (works in normal and insert mode)
+vim.keymap.set("n", "<D-d>", "<cmd>Glance definitions<cr>", { desc = "Go to definition (Glance)" })
+vim.keymap.set("i", "<D-d>", "<C-o><cmd>Glance definitions<cr>", { desc = "Go to definition (Glance)" })
