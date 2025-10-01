@@ -36,6 +36,11 @@ vim.keymap.set("n", "<D-x>", '"+dd', { desc = "Cut line to clipboard" })
 -- Option+Backspace to delete word backward in insert mode
 vim.keymap.set("i", "<M-BS>", "<C-w>", { desc = "Delete word backward" })
 
--- Cmd+D for go to definition using glance.nvim (works in normal and insert mode)
-vim.keymap.set("n", "<D-d>", "<cmd>Glance definitions<cr>", { desc = "Go to definition (Glance)" })
-vim.keymap.set("i", "<D-d>", "<C-o><cmd>Glance definitions<cr>", { desc = "Go to definition (Glance)" })
+-- Cmd+D for show all references using glance.nvim (works in normal and insert mode)
+vim.keymap.set("n", "<D-d>", "<cmd>Glance references<cr>", { desc = "Show all references (Glance)" })
+vim.keymap.set("i", "<D-d>", "<C-o><cmd>Glance references<cr>", { desc = "Show all references (Glance)" })
+
+
+-- Cmd+W for close current buffer (works in normal and insert mode)
+vim.keymap.set("n", "<D-w>", "<cmd>bdelete<cr>", { desc = "Close current buffer" })
+vim.keymap.set("i", "<D-w>", "<C-o><cmd>bdelete<cr>", { desc = "Close current buffer" })
