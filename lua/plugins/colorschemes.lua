@@ -1,5 +1,53 @@
 return {
   {
+    "projekt0n/github-nvim-theme",
+    priority = 1000,
+    config = function()
+      require('github-theme').setup({
+        options = {
+          compile_path = vim.fn.stdpath('cache') .. '/github-theme',
+          compile_file_suffix = '_compiled',
+          hide_end_of_buffer = true,
+          hide_nc_statusline = true,
+          transparent = false,
+          terminal_colors = true,
+          dim_inactive = false,
+          module_default = true,
+          styles = {
+            comments = 'italic',
+            functions = 'NONE',
+            keywords = 'bold',
+            variables = 'NONE',
+            conditionals = 'NONE',
+            constants = 'NONE',
+            numbers = 'NONE',
+            operators = 'NONE',
+            strings = 'NONE',
+            types = 'NONE',
+          },
+          inverse = {
+            match_paren = false,
+            visual = false,
+            search = false,
+          },
+        },
+        palettes = {},
+        specs = {},
+        groups = {},
+      })
+      
+      -- Available themes:
+      -- github_dark, github_light, github_dark_high_contrast, 
+      -- github_light_high_contrast, github_dark_colorblind, github_light_colorblind,
+      -- github_dark_tritanopia, github_light_tritanopia
+      
+      -- Uncomment one of the lines below to enable a GitHub theme
+      -- vim.cmd('colorscheme github_dark')
+      -- vim.cmd('colorscheme github_light')
+      -- vim.cmd('colorscheme github_dark_high_contrast')
+    end,
+  },
+  {
     "sainnhe/gruvbox-material",
     enabled = true,
     priority = 1000,
@@ -726,6 +774,100 @@ return {
 
       -- Uncomment the line below to enable catppuccin theme
       -- vim.api.nvim_command("colorscheme catppuccin")
+    end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    config = function()
+      require("tokyonight").setup({
+        style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+        light_style = "day", -- The theme is used when the background is set to light
+        transparent = false, -- Enable this to disable setting the background color
+        terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+          functions = {},
+          variables = {},
+          sidebars = "dark", -- style for sidebars, see below
+          floats = "dark", -- style for floating windows
+        },
+        sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows
+        day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style
+        hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead
+        dim_inactive = false, -- dims inactive windows
+        lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+        
+        on_colors = function(colors) end,
+        on_highlights = function(highlights, colors) end,
+      })
+      
+      -- Available themes:
+      -- tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
+      
+      -- Uncomment one of the lines below to enable a TokyoNight theme
+      -- vim.cmd("colorscheme tokyonight-night")
+      -- vim.cmd("colorscheme tokyonight-storm") 
+      -- vim.cmd("colorscheme tokyonight-day")
+      -- vim.cmd("colorscheme tokyonight-moon")
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 1000,
+    config = function()
+      require('nightfox').setup({
+        options = {
+          compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+          compile_file_suffix = "_compiled",
+          transparent = false,
+          terminal_colors = true,
+          dim_inactive = false,
+          module_default = true,
+          colorblind = {
+            enable = false,
+            simulate_only = false,
+            severity = {
+              protan = 0,
+              deutan = 0,
+              tritan = 0,
+            },
+          },
+          styles = {
+            comments = "italic",
+            conditionals = "NONE",
+            constants = "NONE",
+            functions = "NONE",
+            keywords = "bold",
+            numbers = "NONE",
+            operators = "NONE",
+            strings = "NONE",
+            types = "NONE",
+            variables = "NONE",
+          },
+          inverse = {
+            match_paren = false,
+            visual = false,
+            search = false,
+          },
+        },
+        palettes = {},
+        specs = {},
+        groups = {},
+      })
+      
+      -- Available themes:
+      -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+      
+      -- Uncomment one of the lines below to enable a Nightfox theme
+      -- vim.cmd("colorscheme nightfox")     -- Dark theme
+      -- vim.cmd("colorscheme dayfox")       -- Light theme 
+      -- vim.cmd("colorscheme dawnfox")      -- Dawn theme
+      -- vim.cmd("colorscheme duskfox")      -- Dusk theme  
+      -- vim.cmd("colorscheme nordfox")      -- Nord-inspired theme
+      -- vim.cmd("colorscheme terafox")      -- Terra theme
+      -- vim.cmd("colorscheme carbonfox")    -- Carbon theme
     end,
   },
 }

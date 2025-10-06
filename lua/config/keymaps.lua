@@ -11,6 +11,10 @@ vim.keymap.set("n", "<D-f>", "/", { desc = "Search in current buffer" })
 vim.keymap.set("n", "<D-z>", "<cmd>undo<cr>", { desc = "Undo" })
 vim.keymap.set("i", "<D-z>", "<C-o><cmd>undo<cr>", { desc = "Undo" })
 
+-- Cmd+Shift+Z for redo (works in normal and insert mode)
+vim.keymap.set("n", "<D-S-z>", "<cmd>redo<cr>", { desc = "Redo" })
+vim.keymap.set("i", "<D-S-z>", "<C-o><cmd>redo<cr>", { desc = "Redo" })
+
 -- Cmd+S for save (works in normal and insert mode)
 vim.keymap.set("n", "<D-s>", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set("i", "<D-s>", "<C-o><cmd>w<cr>", { desc = "Save file" })
