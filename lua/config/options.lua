@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 -- Use absolute line numbers instead of relative
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.number = true
 
 -- Make line number column narrower

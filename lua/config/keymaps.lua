@@ -6,10 +6,9 @@
 -- Cmd+F for local file search (current buffer search)
 vim.keymap.set("n", "<D-f>", "/", { desc = "Search in current buffer" })
 
--- Standard editor shortcuts
 -- Cmd+Z for undo (works in normal and insert mode)
-vim.keymap.set("n", "<D-z>", "<cmd>undo<cr>", { desc = "Undo" })
-vim.keymap.set("i", "<D-z>", "<C-o><cmd>undo<cr>", { desc = "Undo" })
+vim.keymap.set("n", "<D-z>", "u", { desc = "Undo" })
+vim.keymap.set("i", "<D-z>", "<C-o>u", { desc = "Undo" })
 
 -- Cmd+Shift+Z for redo (works in normal and insert mode)
 vim.keymap.set("n", "<D-S-z>", "<cmd>redo<cr>", { desc = "Redo" })
