@@ -35,7 +35,7 @@ return {
         specs = {},
         groups = {},
       })
-      
+
       -- Available themes:
       -- github_dark, github_light, github_dark_high_contrast, 
       -- github_light_high_contrast, github_dark_colorblind, github_light_colorblind,
@@ -44,7 +44,7 @@ return {
       -- Uncomment one of the lines below to enable a GitHub theme
       -- vim.cmd('colorscheme github_dark')
       -- vim.cmd('colorscheme github_light')
-      -- vim.cmd('colorscheme github_dark_high_contrast')
+      vim.cmd('colorscheme github_dark_high_contrast')
     end,
   },
   {
