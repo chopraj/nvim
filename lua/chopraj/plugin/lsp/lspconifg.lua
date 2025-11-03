@@ -49,6 +49,11 @@ return {
                 opts.desc = "Restart LSP"
                 vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
 
+                opts.desc = "Format file or range"
+                vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+                    vim.lsp.buf.format()
+                end, opts)
+
                 vim.keymap.set("i", "<C-h>", function()
                     vim.lsp.buf.signature_help()
                 end, opts)
