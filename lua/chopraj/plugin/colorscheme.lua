@@ -37,14 +37,14 @@ return {
       })
 
       -- Available themes:
-      -- github_dark, github_light, github_dark_high_contrast, 
+      -- github_dark, github_light, github_dark_high_contrast,
       -- github_light_high_contrast, github_dark_colorblind, github_light_colorblind,
       -- github_dark_tritanopia, github_light_tritanopia
-      
+
       -- Uncomment one of the lines below to enable a GitHub theme
       -- vim.cmd('colorscheme github_dark')
       -- vim.cmd('colorscheme github_light')
-      vim.cmd('colorscheme github_dark_high_contrast')
+      -- vim.cmd('colorscheme github_dark_high_contrast')
     end,
   },
   {
@@ -856,18 +856,56 @@ return {
         specs = {},
         groups = {},
       })
-      
+
       -- Available themes:
       -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
-      
+
       -- Uncomment one of the lines below to enable a Nightfox theme
       -- vim.cmd("colorscheme nightfox")     -- Dark theme
-      -- vim.cmd("colorscheme dayfox")       -- Light theme 
+      -- vim.cmd("colorscheme dayfox")       -- Light theme
       -- vim.cmd("colorscheme dawnfox")      -- Dawn theme
-      -- vim.cmd("colorscheme duskfox")      -- Dusk theme  
+      -- vim.cmd("colorscheme duskfox")      -- Dusk theme
       -- vim.cmd("colorscheme nordfox")      -- Nord-inspired theme
       -- vim.cmd("colorscheme terafox")      -- Terra theme
       -- vim.cmd("colorscheme carbonfox")    -- Carbon theme
+    end,
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    config = function()
+      require('kanagawa').setup({
+        compile = false,
+        undercurl = true,
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false,
+        dimInactive = false,
+        terminalColors = true,
+        colors = {
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        overrides = function(colors)
+          return {}
+        end,
+        theme = "wave", -- Load "wave" theme when 'background' option is not set
+        background = {
+          dark = "wave", -- try "dragon" for darker variant
+          light = "lotus"
+        },
+      })
+
+      -- Available themes:
+      -- kanagawa-wave (default dark theme)
+      -- kanagawa-dragon (darker variant)
+      -- kanagawa-lotus (light theme)
+
+      -- Set kanagawa as the colorscheme
+      vim.cmd("colorscheme kanagawa-wave")
     end,
   },
 }
