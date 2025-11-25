@@ -80,3 +80,26 @@ vim.keymap.set("n", "<leader>lx", function()
         underline = isLspDiagnosticsVisible
     })
 end, { desc = "Toggle LSP diagnostics" })
+
+-- Auto-refresh buffers when files change externally
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+    desc = "Check for file changes and reload buffer",
+    group = vim.api.nvim_create_augroup("auto-checktime", { clear = true }),
+    callback = function()
+        if vim.fn.getcmdwintype() == "" then
+            vim.cmd("checktime")
+        end
+    end,
+})
+
+-- Cmd+R to refresh buffer and git signs (like browser refresh)
+vim.keymap.set("n", "<D-r>", function()
+    vim.cmd("checktime")
+    vim.cmd("Gitsigns refresh")
+    vim.notify("Buffer refreshed", vim.log.levels.INFO)
+end, { desc = "Refresh buffer and git signs" })
+vim.keymap.set("i", "<D-r>", function()
+    vim.cmd("checktime")
+    vim.cmd("Gitsigns refresh")
+    vim.notify("Buffer refreshed", vim.log.levels.INFO)
+end, { desc = "Refresh buffer and git signs" })

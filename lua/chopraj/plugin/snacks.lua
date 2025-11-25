@@ -15,7 +15,7 @@ return {
 					{ section = "startup" },
 					{
 						section = "terminal",
-						cmd = "ascii-image-converter ~/Desktop/thorin-logo-black.png -C -c",
+						cmd = "ascii-image-converter ~/Desktop/login-hero.png -C -c",
 						random = 15,
 						pane = 2,
 						indent = 15,
