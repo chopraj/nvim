@@ -31,3 +31,6 @@ vim.opt.signcolumn = "yes"
 -- window splits
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- auto-reload files changed outside of Neovim
+vim.opt.autoread = true
