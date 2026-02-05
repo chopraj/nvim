@@ -41,6 +41,11 @@ vim.keymap.set("n", "<D-x>", '"+dd', { desc = "Cut line to clipboard" })
 -- Option+Backspace to delete word backward in insert mode
 vim.keymap.set("i", "<M-BS>", "<C-w>", { desc = "Delete word backward" })
 
+-- Cmd+/ for toggle comment (like VS Code)
+vim.keymap.set("n", "<D-/>", "gcc", { remap = true, desc = "Toggle comment" })
+vim.keymap.set("v", "<D-/>", "gc", { remap = true, desc = "Toggle comment" })
+vim.keymap.set("i", "<D-/>", "<C-o>gcc", { remap = true, desc = "Toggle comment" })
+
 -- Cmd+D for show all references using Telescope
 vim.keymap.set("n", "<D-d>", "<cmd>Telescope lsp_references<cr>", { desc = "Show all references (Telescope)" })
 vim.keymap.set("i", "<D-d>", "<C-o><cmd>Telescope lsp_references<cr>", { desc = "Show all references (Telescope)" })
