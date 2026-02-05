@@ -69,6 +69,17 @@ return {
 				end,
 				desc = "Pick and Switch Git Branches",
 			},
+			{
+				"<D-f>",
+				function()
+					require("snacks").picker.lines({
+						layout = "ivy",
+						jump = { close = false },
+					})
+				end,
+				mode = { "n", "v", "i" },
+				desc = "Search in current buffer",
+			},
 		},
 	},
 }

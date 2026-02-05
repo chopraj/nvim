@@ -6,8 +6,6 @@ vim.g.maplocalleader = " "
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" })
 
-vim.keymap.set("n", "<D-f>", "/", { desc = "Search in current buffer" })
-
 -- Cmd+Z for undo
 vim.keymap.set("n", "<D-z>", "u", { desc = "Undo" })
 vim.keymap.set("i", "<D-z>", "<C-o>u", { desc = "Undo" })
