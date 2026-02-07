@@ -11,9 +11,6 @@ return {
 				-- Navigation
 				map("n", "]h", gs.next_hunk, "Next Hunk")
 				map("n", "[h", gs.prev_hunk, "Prev Hunk")
-				map("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
-				map("n", "<leader>gd", gs.diffthis, "Diff this")
-				map("n", "<leader>gB", gs.toggle_current_line_blame, "Toggle line blame")
 				-- Text object
 				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "Gitsigns select hunk")
 			end,

@@ -37,11 +37,11 @@ return {
                     go_out_plus = "H",
                 },
             })
-            vim.keymap.set("n", "<D-S-b>", "<cmd>lua MiniFiles.open()<CR>", { desc = "Toggle mini file explorer" }) -- toggle file explorer
-            vim.keymap.set("n", "<D-b>", function()
+            vim.keymap.set("n", "<leader>B", "<cmd>lua MiniFiles.open()<CR>", { desc = "Open file explorer (root)" })
+            vim.keymap.set("n", "<leader>b", function()
                 MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
                 MiniFiles.reveal_cwd()
-            end, { desc = "Toggle into currently opened file" })
+            end, { desc = "Reveal current file in explorer" })
         end,
     },
 	-- Split & join

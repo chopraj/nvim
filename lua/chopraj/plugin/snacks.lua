@@ -26,20 +26,6 @@ return {
 		},
 		keys = {
 			{
-				"<leader>lg",
-				function()
-					require("snacks").lazygit()
-				end,
-				desc = "Lazygit",
-			},
-			{
-				"<leader>gl",
-				function()
-					require("snacks").lazygit.log()
-				end,
-				desc = "Lazygit Logs",
-			},
-			{
 				"<leader>clr",
 				function()
 					require("snacks").picker.colorschemes({ layout = "ivy" })
@@ -49,36 +35,28 @@ return {
 
 			-- Snacks Picker
 			{
-				"<D-p>",
+				"<leader>ff",
 				function()
 					require("snacks").picker.files()
 				end,
-				desc = "Find Files (Snacks Picker)",
+				desc = "Find Files",
 			},
 			{
-				"<D-S-f>",
+				"<leader>fg",
 				function()
 					require("snacks").picker.grep()
 				end,
-				desc = "Grep word",
+				desc = "Grep",
 			},
 			{
-				"<leader>gb",
-				function()
-					require("snacks").picker.git_branches({ layout = "select" })
-				end,
-				desc = "Pick and Switch Git Branches",
-			},
-			{
-				"<D-f>",
+				"<leader>fl",
 				function()
 					require("snacks").picker.lines({
 						layout = "ivy",
 						jump = { close = false },
 					})
 				end,
-				mode = { "n", "v", "i" },
-				desc = "Search in current buffer",
+				desc = "Find Lines in Buffer",
 			},
 		},
 	},
