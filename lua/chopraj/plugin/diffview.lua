@@ -3,7 +3,7 @@ return {
 	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFileHistory" },
 	keys = {
 		{
-			"<D-S-g>",
+			"<leader>dv",
 			function()
 				local lib = require("diffview.lib")
 				local view = lib.get_current_view()

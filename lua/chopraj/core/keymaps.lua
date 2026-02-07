@@ -6,8 +6,6 @@ vim.g.maplocalleader = " "
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual selection" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual selection" })
 
-vim.keymap.set("n", "<D-f>", "/", { desc = "Search in current buffer" })
-
 -- Cmd+Z for undo
 vim.keymap.set("n", "<D-z>", "u", { desc = "Undo" })
 vim.keymap.set("i", "<D-z>", "<C-o>u", { desc = "Undo" })
@@ -41,18 +39,12 @@ vim.keymap.set("n", "<D-x>", '"+dd', { desc = "Cut line to clipboard" })
 -- Option+Backspace to delete word backward in insert mode
 vim.keymap.set("i", "<M-BS>", "<C-w>", { desc = "Delete word backward" })
 
--- Cmd+/ for toggle comment (like VS Code)
-vim.keymap.set("n", "<D-/>", "gcc", { remap = true, desc = "Toggle comment" })
-vim.keymap.set("v", "<D-/>", "gc", { remap = true, desc = "Toggle comment" })
-vim.keymap.set("i", "<D-/>", "<C-o>gcc", { remap = true, desc = "Toggle comment" })
+-- Toggle comment
+vim.keymap.set("n", "<leader>/", "gcc", { remap = true, desc = "Toggle comment" })
+vim.keymap.set("v", "<leader>/", "gc", { remap = true, desc = "Toggle comment" })
 
--- Cmd+D for show all references using Telescope
-vim.keymap.set("n", "<D-d>", "<cmd>Telescope lsp_references<cr>", { desc = "Show all references (Telescope)" })
-vim.keymap.set("i", "<D-d>", "<C-o><cmd>Telescope lsp_references<cr>", { desc = "Show all references (Telescope)" })
-
--- Cmd+W for close current buffer
-vim.keymap.set("n", "<D-w>", "<cmd>bdelete<cr>", { desc = "Close current buffer" })
-vim.keymap.set("i", "<D-w>", "<C-o><cmd>bdelete<cr>", { desc = "Close current buffer" })
+-- Close current buffer
+vim.keymap.set("n", "<leader>w", "<cmd>bdelete<cr>", { desc = "Close current buffer" })
 
 -- Hightlight yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -62,29 +54,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.hl.on_yank()
     end,
 })
-
--- Tab shortcuts
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
-vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
-vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
-
--- Split window shortcuts
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
-
--- Toggle LSP diagnostics visibility
-local isLspDiagnosticsVisible = true
-vim.keymap.set("n", "<leader>lx", function()
-    isLspDiagnosticsVisible = not isLspDiagnosticsVisible
-    vim.diagnostic.config({
-        virtual_text = isLspDiagnosticsVisible,
-        underline = isLspDiagnosticsVisible
-    })
-end, { desc = "Toggle LSP diagnostics" })
 
 -- Auto-refresh buffers when files change externally
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
@@ -96,15 +65,3 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
         end
     end,
 })
-
--- Cmd+R to refresh buffer and git signs (like browser refresh)
-vim.keymap.set("n", "<D-r>", function()
-    vim.cmd("checktime")
-    vim.cmd("Gitsigns refresh")
-    vim.notify("Buffer refreshed", vim.log.levels.INFO)
-end, { desc = "Refresh buffer and git signs" })
-vim.keymap.set("i", "<D-r>", function()
-    vim.cmd("checktime")
-    vim.cmd("Gitsigns refresh")
-    vim.notify("Buffer refreshed", vim.log.levels.INFO)
-end, { desc = "Refresh buffer and git signs" })
